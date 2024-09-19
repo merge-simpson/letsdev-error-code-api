@@ -45,6 +45,10 @@ tasks.named("publishToMavenLocal").configure {
     dependsOn("assemble")
 }
 
+tasks.named<Jar>("jar") {
+    enabled = true
+}
+
 tasks.named<BootJar>("bootJar") {
     enabled = false
 }
