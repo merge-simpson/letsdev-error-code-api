@@ -45,10 +45,13 @@ tasks.named("publishToMavenLocal").configure {
     dependsOn("assemble")
 }
 
-tasks.named<Jar>("jar") {
-    enabled = true
-}
-
 tasks.named<BootJar>("bootJar") {
     enabled = false
+}
+
+tasks.named<Jar>("jar") {
+    enabled = true
+    archiveClassifier.set("") // remove suffix "-plain"
+    // 다운로드 하려는 파일 이름: letsdev-error-code-api-0.1.0.jar
+    // 위 명령 누락 때 파일 이름: letsdev-error-code-api-0.1.0-plain.jar
 }
