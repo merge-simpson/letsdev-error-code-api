@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("org.springframework.boot") version "3.3.3"
+    id("org.springframework.boot") version "2.7.18"
     id("io.spring.dependency-management") version "1.1.6"
     id("maven-publish")
 }
@@ -11,7 +11,7 @@ version = "0.1.0"
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
-        sourceCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
