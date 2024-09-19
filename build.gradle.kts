@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
 plugins {
     id("java")
     id("org.springframework.boot") version "2.7.18"
@@ -41,4 +43,8 @@ publishing {
 
 tasks.named("publishToMavenLocal").configure {
     dependsOn("assemble")
+}
+
+tasks.named<BootJar>("bootJar") {
+    enabled = false
 }
