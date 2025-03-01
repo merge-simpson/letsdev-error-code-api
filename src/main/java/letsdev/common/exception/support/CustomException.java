@@ -47,7 +47,7 @@ public class CustomException extends RuntimeException {
             }
 
             @Override
-            public HttpStatus defaultHttpStatus() {
+            public HttpStatus httpStatus() {
                 return HttpStatus.INTERNAL_SERVER_ERROR;
             }
 
