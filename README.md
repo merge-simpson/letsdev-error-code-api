@@ -9,11 +9,99 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.merge-simpson:letsdev-error-code-api:0.1.0") // added
+    implementation("com.github.merge-simpson:letsdev-error-code-api:0.2.0") // added
 }
 ```
 
 # Features
+
+## Pure Java Error Code
+
+- `BaseErrorCode` `<<interface>>`
+- `BaseCustomException` `<<exception>>`
+
+```mermaid
+%%{init: {"theme": "forest", "themeVariables": {"fontFamily": "Comic Sans MS"}}}%%
+classDiagram
+%% 클래스 목록
+    class BaseErrorCode {
+        <<interface>>
+        +name() String
+        +message() String
+        +statusCode() int
+        +exception() RuntimeException
+        +exception(Throwable cause) RuntimeException
+        +exception(Runnable action) RuntimeException
+        +exception(Runnable action, Throwable cause) RuntimeException
+        +exception(Supplier&lt;Map&lt;String,Object>> payloadSupplier) RuntimeException
+        +exception(Supplier&lt;Map&lt;String,Object>> payloadSupplier, Throwable cause) RuntimeException
+    }
+
+    class BaseCustomException {
+        #errorCode: BaseErrorCode
+        #action: Runnable
+        #payloadSupplier: Supplier&lt;Map&lt;String,Object>>
+        
+        +BaseCustomException()
+        +BaseCustomException(message: String)
+        +BaseCustomException(message: String, cause: Throwable)
+        +BaseCustomException(errorCode: BaseErrorCode)
+        +BaseCustomException(errorCode: BaseErrorCode, cause: Throwable)
+        +BaseCustomException(errorCode: BaseErrorCode, action: Runnable)
+        +BaseCustomException(errorCode: BaseErrorCode, action: Runnable, cause: Throwable)
+        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>)
+        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>, cause: Throwable)
+        
+        +getErrorCode() : BaseErrorCode
+        -(static) getDefaultErrorCode() : BaseErrorCode
+    }
+
+    class DefaultBaseErrorCodeHolder {
+        <<private>>
+        -INSTANCE : BaseErrorCode
+    }
+
+%% 관계 표현
+    BaseCustomException ..> BaseErrorCode : uses
+    BaseCustomException o-- DefaultBaseErrorCodeHolder : contains
+```
+
+## Spring-Dependent Error Code
+
+- `ErrorCode`: `<<interface>>`
+- `CustomException` `<<exception>>`
+
+**Usage**
+
+```mermaid
+%%{init: {"theme": "forest", "themeVariables": {"fontFamily": "Comic Sans MS"}}}%%
+classDiagram
+%% 클래스 목록
+    class BaseErrorCode {
+        <<interface>>
+    }
+
+    class BaseCustomException {
+        <<exception>>
+    }
+    
+    class ErrorCode {
+        <<interface>>
+        +httpStatus() HttpStatus
+    }
+
+    class CustomException {
+        <<exception>>
+    }
+
+%% 관계 표현
+    %% ErrorCode ..|> BaseErrorCode
+    %% CustomException --|> BaseCustomException
+    BaseCustomException ..> BaseErrorCode : uses
+    CustomException ..> ErrorCode : uses
+```
+
+<!--
 
 ## 확장 가능한 Error Code
 
@@ -61,3 +149,5 @@ public final class GlobalExceptionHandler {
 |        Group        | Artifact ID |
 |:-------------------:|:-----------:|
 | org.springframework | spring-web  |
+
+-->
