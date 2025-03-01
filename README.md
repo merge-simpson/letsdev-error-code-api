@@ -80,7 +80,7 @@ classDiagram
 
 - 각 의존성 라이브러리에서 `org.springframework.http.HttpStatus`를 포함하거나 호환되는 버전이 필요합니다.
 
-**Generalization Relationship**
+<p align="center"><strong>Generalization Relationship</strong></p>
 
 ```mermaid
 %%{init: {"theme": "forest", "themeVariables": {"fontFamily": "Comic Sans MS"}}}%%
