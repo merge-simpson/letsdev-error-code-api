@@ -1,32 +1,80 @@
 package letsdev.common.exception.support;
 
+import java.util.Collections;
+import java.util.Map;
+import java.util.function.Supplier;
+
 public class BaseCustomException extends RuntimeException {
 
     protected final BaseErrorCode errorCode;
+    protected final Runnable action;
+    protected final Supplier<Map<String, Object>> payloadSupplier;
 
     public BaseCustomException() {
         super(getDefaultErrorCode().message());
         this.errorCode = getDefaultErrorCode();
+        this.action = () -> {};
+        this.payloadSupplier = Collections::emptyMap;
     }
 
     public BaseCustomException(String message) {
         super(message);
         this.errorCode = getDefaultErrorCode();
+        this.action = () -> {};
+        this.payloadSupplier = Collections::emptyMap;
     }
 
     public BaseCustomException(String message, Throwable cause) {
         super(message, cause);
         this.errorCode = getDefaultErrorCode();
+        this.action = () -> {};
+        this.payloadSupplier = Collections::emptyMap;
     }
 
     public BaseCustomException(BaseErrorCode errorCode) {
         super(errorCode.message());
         this.errorCode = errorCode;
+        this.action = () -> {};
+        this.payloadSupplier = Collections::emptyMap;
     }
 
     public BaseCustomException(BaseErrorCode errorCode, Throwable cause) {
         super(errorCode.message(), cause);
         this.errorCode = errorCode;
+        this.action = () -> {};
+        this.payloadSupplier = Collections::emptyMap;
+    }
+
+    public BaseCustomException(BaseErrorCode errorCode, Runnable action) {
+        super(errorCode.message());
+        this.errorCode = errorCode;
+        this.action = action;
+        this.payloadSupplier = Collections::emptyMap;
+    }
+
+    public BaseCustomException(BaseErrorCode errorCode, Runnable action, Throwable cause) {
+        super(errorCode.message(), cause);
+        this.errorCode = errorCode;
+        this.action = action;
+        this.payloadSupplier = Collections::emptyMap;
+    }
+
+    public BaseCustomException(BaseErrorCode errorCode, Supplier<Map<String, Object>> payloadSupplier) {
+        super(errorCode.message());
+        this.errorCode = errorCode;
+        this.action = () -> {};
+        this.payloadSupplier = payloadSupplier;
+    }
+
+    public BaseCustomException(
+            BaseErrorCode errorCode,
+            Supplier<Map<String, Object>> payloadSupplier,
+            Throwable cause
+    ) {
+        super(errorCode.message(), cause);
+        this.errorCode = errorCode;
+        this.action = () -> {};
+        this.payloadSupplier = payloadSupplier;
     }
 
     private static BaseErrorCode getDefaultErrorCode() {
@@ -62,6 +110,26 @@ public class BaseCustomException extends RuntimeException {
             @Override
             public BaseCustomException exception(Throwable cause) {
                 return new BaseCustomException(this, cause);
+            }
+
+            @Override
+            public BaseCustomException exception(Runnable action) {
+                return new BaseCustomException(this, action);
+            }
+
+            @Override
+            public BaseCustomException exception(Runnable action, Throwable cause) {
+                return new BaseCustomException(this, action, cause);
+            }
+
+            @Override
+            public BaseCustomException exception(Supplier<Map<String, Object>> payloadSupplier) {
+                return new BaseCustomException(this, payloadSupplier);
+            }
+
+            @Override
+            public BaseCustomException exception(Supplier<Map<String, Object>> payloadSupplier, Throwable cause) {
+                return new BaseCustomException(this, payloadSupplier, cause);
             }
         };
     }
