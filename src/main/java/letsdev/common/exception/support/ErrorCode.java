@@ -9,7 +9,7 @@ public interface ErrorCode extends BaseErrorCode {
     HttpStatus httpStatus();
 
     default int statusCode() {
-        assert httpStatus() != null : "ErrorCode must have a non-null http status.";
+        assert httpStatus() != null : "HTTP status must not be null.";
         return httpStatus().value();
     }
 }
