@@ -2,10 +2,6 @@ package letsdev.common.exception.support;
 
 public class BaseCustomException extends RuntimeException {
 
-    private static BaseErrorCode getDefaultErrorCode() {
-        return DefaultBaseErrorCodeHolder.DEFAULT_BASE_ERROR_CODE;
-    }
-
     protected final BaseErrorCode errorCode;
 
     public BaseCustomException() {
@@ -31,6 +27,10 @@ public class BaseCustomException extends RuntimeException {
     public BaseCustomException(BaseErrorCode errorCode, Throwable cause) {
         super(errorCode.message(), cause);
         this.errorCode = errorCode;
+    }
+
+    private static BaseErrorCode getDefaultErrorCode() {
+        return DefaultBaseErrorCodeHolder.DEFAULT_BASE_ERROR_CODE;
     }
 
     public BaseErrorCode getErrorCode() {
