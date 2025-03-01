@@ -9,7 +9,7 @@ public class BaseCustomException extends RuntimeException {
     protected final BaseErrorCode errorCode;
 
     public BaseCustomException() {
-        super(getDefaultErrorCode().defaultMessage());
+        super(getDefaultErrorCode().message());
         this.errorCode = getDefaultErrorCode();
     }
 
@@ -24,12 +24,12 @@ public class BaseCustomException extends RuntimeException {
     }
 
     public BaseCustomException(BaseErrorCode errorCode) {
-        super(errorCode.defaultMessage());
+        super(errorCode.message());
         this.errorCode = errorCode;
     }
 
     public BaseCustomException(BaseErrorCode errorCode, Throwable cause) {
-        super(errorCode.defaultMessage(), cause);
+        super(errorCode.message(), cause);
         this.errorCode = errorCode;
     }
 
@@ -45,7 +45,7 @@ public class BaseCustomException extends RuntimeException {
             }
 
             @Override
-            public String defaultMessage() {
+            public String message() {
                 return "서버 오류";
             }
 
@@ -55,12 +55,12 @@ public class BaseCustomException extends RuntimeException {
             }
 
             @Override
-            public BaseCustomException defaultException() {
+            public BaseCustomException exception() {
                 return new BaseCustomException(this);
             }
 
             @Override
-            public BaseCustomException defaultException(Throwable cause) {
+            public BaseCustomException exception(Throwable cause) {
                 return new BaseCustomException(this, cause);
             }
         };

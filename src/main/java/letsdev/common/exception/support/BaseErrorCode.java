@@ -5,8 +5,8 @@ package letsdev.common.exception.support;
  */
 public interface BaseErrorCode {
     String name(); // automatically overridden in enum
-    String defaultMessage();
+    String message();
     int statusCode();
-    RuntimeException defaultException();
-    RuntimeException defaultException(Throwable cause);
+    RuntimeException exception();
+    RuntimeException exception(Throwable cause);
 }

@@ -11,7 +11,7 @@ public class CustomException extends RuntimeException {
     protected final ErrorCode errorCode;
 
     public CustomException() {
-        super(getDefaultErrorCode().defaultMessage());
+        super(getDefaultErrorCode().message());
         this.errorCode = getDefaultErrorCode();
     }
 
@@ -26,12 +26,12 @@ public class CustomException extends RuntimeException {
     }
 
     public CustomException(ErrorCode errorCode) {
-        super(errorCode.defaultMessage());
+        super(errorCode.message());
         this.errorCode = errorCode;
     }
 
     public CustomException(ErrorCode errorCode, Throwable cause) {
-        super(errorCode.defaultMessage(), cause);
+        super(errorCode.message(), cause);
         this.errorCode = errorCode;
     }
 
@@ -52,17 +52,17 @@ public class CustomException extends RuntimeException {
             }
 
             @Override
-            public String defaultMessage() {
+            public String message() {
                 return "서버 오류";
             }
 
             @Override
-            public CustomException defaultException() {
+            public CustomException exception() {
                 return new CustomException(this);
             }
 
             @Override
-            public CustomException defaultException(Throwable cause) {
+            public CustomException exception(Throwable cause) {
                 return new CustomException(this, cause);
             }
         };
