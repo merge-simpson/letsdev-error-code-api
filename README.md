@@ -71,7 +71,16 @@ classDiagram
 - `ErrorCode`: `<<interface>>`
 - `CustomException` `<<exception>>`
 
-**Usage**
+위 목록을 사용하려면 다음 의존성을 포함해야 합니다.  
+버전은 자유롭게 선택하십시오.  
+
+|        Group        | Artifact ID | Version |
+|:-------------------:|:-----------:|:-------:|
+| org.springframework | spring-web  |   any   |
+
+- 각 의존성 라이브러리에서 `org.springframework.http.HttpStatus`를 포함하거나 호환되는 버전이 필요합니다.
+
+**Generalization Relationship**
 
 ```mermaid
 %%{init: {"theme": "forest", "themeVariables": {"fontFamily": "Comic Sans MS"}}}%%
