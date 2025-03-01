@@ -4,10 +4,6 @@ import org.springframework.http.HttpStatus;
 
 public class CustomException extends RuntimeException {
 
-    private static ErrorCode getDefaultErrorCode() {
-        return DefaultErrorCodeHolder.DEFAULT_ERROR_CODE;
-    }
-
     protected final ErrorCode errorCode;
 
     public CustomException() {
@@ -33,6 +29,10 @@ public class CustomException extends RuntimeException {
     public CustomException(ErrorCode errorCode, Throwable cause) {
         super(errorCode.message(), cause);
         this.errorCode = errorCode;
+    }
+
+    private static ErrorCode getDefaultErrorCode() {
+        return DefaultErrorCodeHolder.DEFAULT_ERROR_CODE;
     }
 
     public ErrorCode getErrorCode() {
