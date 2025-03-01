@@ -78,7 +78,7 @@ public class BaseCustomException extends RuntimeException {
     }
 
     private static BaseErrorCode getDefaultErrorCode() {
-        return DefaultBaseErrorCodeHolder.DEFAULT_BASE_ERROR_CODE;
+        return DefaultBaseErrorCodeHolder.INSTANCE;
     }
 
     public BaseErrorCode getErrorCode() {
@@ -86,7 +86,7 @@ public class BaseCustomException extends RuntimeException {
     }
 
     private static class DefaultBaseErrorCodeHolder { // 사용할 때 로드 + 스레드 세이프(클래스 로드 타임은 동시성 보장됨.)
-        private static final BaseErrorCode DEFAULT_BASE_ERROR_CODE = new BaseErrorCode() {
+        private static final BaseErrorCode INSTANCE = new BaseErrorCode() {
             @Override
             public String name() {
                 return "SERVER_ERROR";
