@@ -4,15 +4,17 @@ plugins {
     id("java")
     id("org.springframework.boot") version "2.7.18"
     id("io.spring.dependency-management") version "1.1.6"
+
+    // publish
     id("maven-publish")
 }
 
 group = "me.letsdev"
-version = "0.1.0"
+version = "0.2.0"
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(8)
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
