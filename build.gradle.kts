@@ -14,6 +14,7 @@ version = "0.2.0"
 
 java {
     toolchain {
+        // use JDK 1.8 (for compatibility)
         languageVersion = JavaLanguageVersion.of(8)
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
