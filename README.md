@@ -104,10 +104,10 @@ classDiagram
     }
 
 %% 관계 표현
-    %% ErrorCode ..|> BaseErrorCode
-    %% CustomException --|> BaseCustomException
-    BaseCustomException ..> BaseErrorCode : uses
-    CustomException ..> ErrorCode : uses
+%%    BaseCustomException ..> BaseErrorCode : uses
+%%    CustomException ..> ErrorCode : uses
+    BaseErrorCode --|> ErrorCode
+    BaseCustomException --|> CustomException
 ```
 
 <!--
