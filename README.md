@@ -1,6 +1,6 @@
-# Download
+# Download (Maven/Gradle)
 
-Gradle(Kotlin):
+Gradle Script(Kotlin):
 
 ```kotlin
 repositories {
