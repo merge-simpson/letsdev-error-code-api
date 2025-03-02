@@ -82,6 +82,10 @@ classDiagram
 %%        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>, cause: Throwable)
         
         +getErrorCode() BaseErrorCode
+        +executeOnError() void
+        +getPayload() Map&lt;String, Object>
+        +getPayloadOrElse(Map&lt;...>) Map&lt;String, Object>
+        +getPayloadOrElseGet(() -> Map&lt;...>) Map&lt;String, Object>
     }
 
 %%    class DefaultBaseErrorCodeHolder {
