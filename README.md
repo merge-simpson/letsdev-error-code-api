@@ -83,10 +83,10 @@ classDiagram
         -(static) getDefaultErrorCode() : BaseErrorCode
     }
 
-    class DefaultBaseErrorCodeHolder {
-        <<private>>
-        -INSTANCE : BaseErrorCode
-    }
+%%    class DefaultBaseErrorCodeHolder {
+%%        <<private>>
+%%        -INSTANCE : BaseErrorCode
+%%    }
 
 %% 관계 표현
     BaseCustomException ..> BaseErrorCode : uses
