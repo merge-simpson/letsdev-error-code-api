@@ -89,6 +89,27 @@ classDiagram
     BaseCustomException ..> BaseErrorCode : uses
 ```
 
+### BaseErrorCode
+
+`BaseErrorCode`는 에러 코드를 대표하는 최상위 인터페이스로 설계하였습니다.
+이 인터페이스를 구현하면 오류 메시지, 상태 코드 및 관련 예외, 연계되는 동작 등을 제공합니다.
+
+**메서드 목록**
+
+- `name()`: 에러 코드의 이름을 반환합니다.   
+  > _참고 사항: `enum` 클래스에서 기본적으로 제공하는 함수이므로, `enum`에서 이 인터페이스를 구현 시 생략해도 됩니다._
+- `message()`: 오류 메시지를 반환합니다.
+- `statusCode()`: 상태 코드를 정수로 반환합니다. (이 클래스는 스프링에 독립적이기 때문에 정수를 반환합니다.)
+- `exception()`: 관련성이 높은 기본 예외를 반환합니다.
+- `exception(Throwable)`: 관련성이 높은 기본 예외를 반환합니다. 이때, 이 오류를 야기한 오류를 스택에 담습니다.
+- `exception(Runnable)`: 이 오류를 처리할 때 함께 수행할 동작을 전달하며, 예외를 반환합니다.
+- `exception(Runnable, Throwable)`: 위 메서드와 거의 같은 역할을 수행하며, 동시에 이 오류를 야기한 오류를 스택에 담습니다.
+- `exception(Supplier<Map<String, Object>>)`: 
+    이 오류를 처리할 때 함께 수행할 동작이자
+    확장 멤버를 반환하는 함수를 전달하며, 예외를 반환합니다.
+- `exception(Supplier<Map<String, Object>>, Throwable)`: 
+    위 메서드와 거의 같은 역할을 수행하며, 동시에 이 오류를 야기한 오류를 스택에 담습니다.
+
 ## Spring-Dependent Error Code
 
 - `ErrorCode`: `<<interface>>`
