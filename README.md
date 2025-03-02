@@ -82,7 +82,6 @@ classDiagram
 %%        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>, cause: Throwable)
         
         +getErrorCode() BaseErrorCode
-        -(static) getDefaultErrorCode() BaseErrorCode
     }
 
 %%    class DefaultBaseErrorCodeHolder {
