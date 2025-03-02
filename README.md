@@ -91,7 +91,6 @@ classDiagram
 
 %% 관계 표현
     BaseCustomException ..> BaseErrorCode : uses
-    BaseCustomException o-- DefaultBaseErrorCodeHolder : contains
 ```
 
 ## Spring-Dependent Error Code
