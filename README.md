@@ -15,6 +15,33 @@ dependencies {
 
 # Features
 
+이 라이브러리는 다음 기능을 제공합니다.
+
+- 에러코드(인터페이스)
+- 커스텀 예외
+
+<details>
+  <summary>에러코드 용례</summary>
+
+  ```mermaid
+  classDiagram
+  %% class list
+      class ErrorCode {
+          <<interface>>
+      }
+      class BoardErrorCode {
+          <<enumeration>>
+      }
+      class SignUpErrorCode {
+          <<enumeration>>
+      }
+      
+      ErrorCode <|.. BoardErrorCode : implements
+      ErrorCode <|.. SignUpErrorCode : implements
+  ```
+
+</details>
+
 ## Pure Java Error Code
 
 - `BaseErrorCode` `<<interface>>`
