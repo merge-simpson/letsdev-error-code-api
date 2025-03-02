@@ -39,7 +39,8 @@ dependencies {
       class SignUpErrorCode {
           <<enumeration>>
       }
-      
+  
+  %% relationship
       ErrorCode <|.. BoardErrorCode : implements
       ErrorCode <|.. SignUpErrorCode : implements
   ```
