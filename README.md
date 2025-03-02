@@ -84,8 +84,8 @@ classDiagram
         +getErrorCode() BaseErrorCode
         +executeOnError() void
         +getPayload() Map&lt;...>
-        +getPayloadOrElse(Map&lt;...>) Map&lt;String, Object>
-        +getPayloadOrElseGet(() -> Map&lt;...>) Map&lt;String, Object>
+        +getPayloadOrElse(Map&lt;...>) Map&lt;...>
+        +getPayloadOrElseGet(() -> Map&lt;...>) Map&lt;...>
     }
 
 %%    class DefaultBaseErrorCodeHolder {
