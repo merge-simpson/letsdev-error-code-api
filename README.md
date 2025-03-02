@@ -60,15 +60,15 @@ classDiagram
         +exception(Throwable) RuntimeException
         +exception(Runnable) RuntimeException
         +exception(Runnable, Throwable) RuntimeException
-        +exception(Supplier&lt;Map&lt;String,Object>>) RuntimeException
-        +exception(Supplier&lt;Map&lt;String,Object>>, Throwable) RuntimeException
+        +exception(Supplier&lt;Map&lt;...>>) RuntimeException
+        +exception(Supplier&lt;Map&lt;...>>, Throwable) RuntimeException
     }
 
     class BaseCustomException {
         <<exception>>
         #errorCode: BaseErrorCode
         #action: Runnable
-        #payloadSupplier: Supplier&lt;Map&lt;String,Object>>
+        #payloadSupplier: Supplier&lt;Map&lt;...>>
         $DefaultBaseErrorCodeHolder.INSTANCE : BaseErrorCode
         
 %%        +BaseCustomException()
@@ -83,7 +83,7 @@ classDiagram
         
         +getErrorCode() BaseErrorCode
         +executeOnError() void
-        +getPayload() Map&lt;String, Object>
+        +getPayload() Map&lt;...>
         +getPayloadOrElse(Map&lt;...>) Map&lt;String, Object>
         +getPayloadOrElseGet(() -> Map&lt;...>) Map&lt;String, Object>
     }
