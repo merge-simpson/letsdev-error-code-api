@@ -1,6 +1,6 @@
 # Download (Maven/Gradle)
 
-Gradle Script(Kotlin):
+**Gradle Script (Kotlin)**
 
 ```kotlin
 repositories {
@@ -12,6 +12,8 @@ dependencies {
     implementation("com.github.merge-simpson:letsdev-error-code-api:0.2.0") // added
 }
 ```
+
+<br />
 
 # Features
 
@@ -42,6 +44,8 @@ dependencies {
   ```
 
 </details>
+
+<br />
 
 ## Pure Java Error Code
 
