@@ -16,13 +16,15 @@ dependencies {
 
 # Features
 
-이 라이브러리는 다음 기능을 제공합니다.
+이 라이브러리는 다음 기능을 제공합니다.  
+하위 섹션에서 더 구체적으로 소개합니다.
+(업데이트 예정)
 
-- 에러코드(인터페이스)
+- 에러코드 (인터페이스)
 - 커스텀 예외
 
 <details>
-  <summary>에러코드 용례</summary>
+  <summary>에러코드 구현 용례</summary>
 
   ```mermaid
   %%{init: {"theme": "forest", "themeVariables": {"fontFamily": "Comic Sans MS"}}}%%
