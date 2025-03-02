@@ -65,6 +65,7 @@ classDiagram
     }
 
     class BaseCustomException {
+        <<exception>>
         #errorCode: BaseErrorCode
         #action: Runnable
         #payloadSupplier: Supplier&lt;Map&lt;String,Object>>
