@@ -68,6 +68,7 @@ classDiagram
         #errorCode: BaseErrorCode
         #action: Runnable
         #payloadSupplier: Supplier&lt;Map&lt;String,Object>>
+        $DefaultBaseErrorCodeHolder.INSTANCE : BaseErrorCode
         
         +BaseCustomException()
         +BaseCustomException(message: String)
