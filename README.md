@@ -24,6 +24,7 @@ dependencies {
   <summary>에러코드 용례</summary>
 
   ```mermaid
+  %%{init: {"theme": "forest", "themeVariables": {"fontFamily": "Comic Sans MS"}}}%%
   classDiagram
   %% class list
       class ErrorCode {
