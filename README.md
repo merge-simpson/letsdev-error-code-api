@@ -71,15 +71,15 @@ classDiagram
         #payloadSupplier: Supplier&lt;Map&lt;String,Object>>
         $DefaultBaseErrorCodeHolder.INSTANCE : BaseErrorCode
         
-        +BaseCustomException()
-        +BaseCustomException(message: String)
-        +BaseCustomException(message: String, cause: Throwable)
-        +BaseCustomException(errorCode: BaseErrorCode)
-        +BaseCustomException(errorCode: BaseErrorCode, cause: Throwable)
-        +BaseCustomException(errorCode: BaseErrorCode, action: Runnable)
-        +BaseCustomException(errorCode: BaseErrorCode, action: Runnable, cause: Throwable)
-        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>)
-        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>, cause: Throwable)
+%%        +BaseCustomException()
+%%        +BaseCustomException(message: String)
+%%        +BaseCustomException(message: String, cause: Throwable)
+%%        +BaseCustomException(errorCode: BaseErrorCode)
+%%        +BaseCustomException(errorCode: BaseErrorCode, cause: Throwable)
+%%        +BaseCustomException(errorCode: BaseErrorCode, action: Runnable)
+%%        +BaseCustomException(errorCode: BaseErrorCode, action: Runnable, cause: Throwable)
+%%        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>)
+%%        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>, cause: Throwable)
         
         +getErrorCode() : BaseErrorCode
         -(static) getDefaultErrorCode() : BaseErrorCode
