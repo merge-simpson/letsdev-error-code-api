@@ -57,11 +57,11 @@ classDiagram
         +message() String
         +statusCode() int
         +exception() RuntimeException
-        +exception(Throwable cause) RuntimeException
-        +exception(Runnable action) RuntimeException
-        +exception(Runnable action, Throwable cause) RuntimeException
-        +exception(Supplier&lt;Map&lt;String,Object>> payloadSupplier) RuntimeException
-        +exception(Supplier&lt;Map&lt;String,Object>> payloadSupplier, Throwable cause) RuntimeException
+        +exception(Throwable) RuntimeException
+        +exception(Runnable) RuntimeException
+        +exception(Runnable, Throwable) RuntimeException
+        +exception(Supplier&lt;Map&lt;String,Object>>) RuntimeException
+        +exception(Supplier&lt;Map&lt;String,Object>>, Throwable) RuntimeException
     }
 
     class BaseCustomException {
