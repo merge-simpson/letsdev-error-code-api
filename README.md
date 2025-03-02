@@ -72,27 +72,12 @@ classDiagram
         #payloadSupplier: Supplier&lt;Map&lt;...>>
         $DefaultBaseErrorCodeHolder.INSTANCE : BaseErrorCode
         
-%%        +BaseCustomException()
-%%        +BaseCustomException(message: String)
-%%        +BaseCustomException(message: String, cause: Throwable)
-%%        +BaseCustomException(errorCode: BaseErrorCode)
-%%        +BaseCustomException(errorCode: BaseErrorCode, cause: Throwable)
-%%        +BaseCustomException(errorCode: BaseErrorCode, action: Runnable)
-%%        +BaseCustomException(errorCode: BaseErrorCode, action: Runnable, cause: Throwable)
-%%        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>)
-%%        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>, cause: Throwable)
-        
         +getErrorCode() BaseErrorCode
         +executeOnError() void
         +getPayload() Map&lt;...>
         +getPayloadOrElse(Map&lt;...>) Map&lt;...>
         +getPayloadOrElseGet(() -> Map&lt;...>) Map&lt;...>
     }
-
-%%    class DefaultBaseErrorCodeHolder {
-%%        <<private>>
-%%        -INSTANCE : BaseErrorCode
-%%    }
 
 %% 관계 표현
     BaseCustomException ..> BaseErrorCode : uses
@@ -136,13 +121,23 @@ classDiagram
     }
 
 %% 관계 표현
-%%    BaseCustomException ..> BaseErrorCode : uses
-%%    CustomException ..> ErrorCode : uses
     BaseErrorCode --|> ErrorCode
     BaseCustomException --|> CustomException
 ```
 
 <!--
+
+생성자 목록
+
+%%        +BaseCustomException()
+%%        +BaseCustomException(message: String)
+%%        +BaseCustomException(message: String, cause: Throwable)
+%%        +BaseCustomException(errorCode: BaseErrorCode)
+%%        +BaseCustomException(errorCode: BaseErrorCode, cause: Throwable)
+%%        +BaseCustomException(errorCode: BaseErrorCode, action: Runnable)
+%%        +BaseCustomException(errorCode: BaseErrorCode, action: Runnable, cause: Throwable)
+%%        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>)
+%%        +BaseCustomException(errorCode: BaseErrorCode, payloadSupplier: Supplier&lt;Map&lt;String,Object>>, cause: Throwable)
 
 ## 확장 가능한 Error Code
 
