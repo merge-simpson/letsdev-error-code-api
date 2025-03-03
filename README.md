@@ -110,6 +110,14 @@ classDiagram
 - `exception(Supplier<Map<String, Object>>, Throwable)`: 
     위 메서드와 거의 같은 역할을 수행하며, 동시에 이 오류를 야기한 오류를 스택에 담습니다.
 
+### BaseCustomException
+
+주요 기능 요약
+
+- 에러 코드를 핸들링합니다.
+- 오류 처리 시 동반되는 동작을 관리합니다.
+- 오류 처리 시 추가되는 확장 멤버를 관리합니다.
+
 ## Spring-Dependent Error Code
 
 - `ErrorCode`: `<<interface>>`
