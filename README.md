@@ -118,6 +118,10 @@ classDiagram
 - 오류 처리 시 동반되는 동작을 관리합니다.
 - 오류 처리 시 추가되는 확장 멤버를 관리합니다.
 
+생성자
+
+메서드
+
 ## Spring-Dependent Error Code
 
 - `ErrorCode`: `<<interface>>`
