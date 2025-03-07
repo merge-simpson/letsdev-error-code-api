@@ -22,6 +22,7 @@ dependencies {
 
 - 에러코드 (인터페이스)
 - 커스텀 예외
+- 예외 처리 시 연계할 동작을 지정할 수 있습니다.
 
 <details>
   <summary>에러코드 구현 용례</summary>
