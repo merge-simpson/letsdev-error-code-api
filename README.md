@@ -106,8 +106,7 @@ classDiagram
 - `exception(Runnable)`: 이 오류를 처리할 때 함께 수행할 동작을 전달하며, 예외를 반환합니다.
 - `exception(Runnable, Throwable)`: 위 메서드와 거의 같은 역할을 수행하며, 동시에 이 오류를 야기한 오류를 스택에 담습니다.
 - `exception(Supplier<Map<String, Object>>)`: 
-    이 오류를 처리할 때 함께 수행할 동작이자
-    확장 멤버를 반환하는 함수를 전달하며, 예외를 반환합니다.
+    이 오류를 처리할 때 함께 수행할 동작이자 확장 멤버를 반환하는 함수를 전달하며, 예외를 반환합니다.
 - `exception(Supplier<Map<String, Object>>, Throwable)`: 
     위 메서드와 거의 같은 역할을 수행하며, 동시에 이 오류를 야기한 오류를 스택에 담습니다.
 
